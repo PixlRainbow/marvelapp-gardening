@@ -62,7 +62,9 @@
 			} else if (elem.msRequestFullscreen) { /* IE/Edge */
 				elem.msRequestFullscreen();
 			}
-			elem.src="https://marvelapp.com/65g4ddb";
+			if(elem.src.length <= 0){
+				elem.src="https://marvelapp.com/65g4ddb";
+			}
 		}
 		document.addEventListener("fullscreenchange", function(event){
 			if(document.fullscreenElement === null){
