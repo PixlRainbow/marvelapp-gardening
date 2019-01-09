@@ -1,0 +1,80 @@
+<!--
+   viewer.html
+   
+   Copyright 2019 Starlight Sparkle <starlight@starlight-desktop>
+   
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+   MA 02110-1301, USA.
+   
+   
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>Gardening App</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.32" />
+	<style>
+		* {
+			padding:0;
+			margin:0;
+			border:0;
+		}
+		iframe {
+			position:relative;
+			top:0;
+			left:0;
+			width:100vw;
+			height:100vh;
+		}
+		dialog {
+			font-size:5vh;
+		}
+	</style>
+	<script>
+		function openDialog(){
+			document.getElementById("dialog").showModal();
+		}
+		function openFullscreen() {
+			document.getElementById("dialog").close();
+			var elem = document.getElementById("frame");
+			if (elem.requestFullscreen) {
+				elem.requestFullscreen();
+			} else if (elem.mozRequestFullScreen) { /* Firefox */
+				elem.mozRequestFullScreen();
+			} else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+				elem.webkitRequestFullscreen();
+			} else if (elem.msRequestFullscreen) { /* IE/Edge */
+				elem.msRequestFullscreen();
+			}
+			elem.src="https://marvelapp.com/65g4ddb";
+		}
+		document.addEventListener("fullscreenchange", function(event){
+			if(document.fullscreenElement === null){
+				openDialog();
+			}
+		});
+	</script>
+</head>
+
+<body onload="openDialog()">
+	<dialog onclick="openFullscreen()" id="dialog">Tap to open full screen</dialog>
+	<iframe id="frame"></iframe>
+</body>
+
+</html>
